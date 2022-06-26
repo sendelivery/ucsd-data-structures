@@ -31,8 +31,14 @@
 *.out
 *.app
 
+# Other starter files
+*.py
+*.java
+*.kt
+
 # VSCode
 .vscode
+.editorconfig
 
 # Other
 *.pdf
