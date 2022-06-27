@@ -12,21 +12,28 @@ using std::max_element;
 
 class StackWithMax {
     vector<int> stack;
+    vector<int> max_stack;
 
   public:
 
     void Push(int value) {
+        if (max_stack.empty() || value >= max_stack.back()) {
+            max_stack.push_back(value);
+        }
         stack.push_back(value);
     }
 
     void Pop() {
         assert(stack.size());
+        if (stack.back() == max_stack.back()) {
+            max_stack.pop_back();
+        }
         stack.pop_back();
     }
 
     int Max() const {
         assert(stack.size());
-        return *max_element(stack.begin(), stack.end());
+        return max_stack.back();
     }
 };
 
